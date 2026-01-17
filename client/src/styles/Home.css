@@ -1,0 +1,127 @@
+.Hero-Content{
+   min-height: 55vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.Content{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.Content h1{
+   font-size: clamp(32px, 5vw, 55px);
+}
+.Content p{
+    font-size: clamp(13px, 1.2vw, 16px);
+    padding: 0 10px; ;
+}
+.Content button{
+    min-width: 30%;
+    padding: 5px 10px;
+    border-radius: 30px;
+    margin: auto;
+    background-color: #44B0CC;
+    color: aliceblue;
+    margin-top: 25px;
+    border: none;
+}
+.infinite-image-bubble{
+    width: 100%;
+    display: flex;
+    position: relative;
+    white-space: nowrap;
+    overflow: auto;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.bubble-images{
+    display: flex;
+}
+.bubble-images img{
+    min-width: 20%;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 30px 30px 0 0;
+    border: 4px solid #44cc48;
+}
+.About-home-section{
+    min-height: 90vh;
+    position: relative;
+    background-image: url('/src/assets/bubble-home-about-bgimg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.About-home-contents{
+    display: flex;
+    flex-direction: column;
+}
+.About-home-contents h1{
+    color: rgb(14, 14, 14);
+    font-size: 40px;
+    padding: 5% 0 0 5%;
+    font-size: clamp(24px, 5vw, 40px);
+
+}
+.About-home-contents h1 span{
+    color: #44B0CC;
+}
+.About-home-contents p{
+    color: rgb(14, 14, 14);
+    width: 80%;
+    font-size: clamp(20px, 2vw, 24px);
+    padding: 95px 0% 0 5%;
+    line-height: 1.6;
+    z-index: 1;
+    background-color: transparent;
+}
+.About-home-contents p span{
+    color: #44B0CC;
+}
+.about-image-section img{
+    width: 20%;
+    min-width: 200px;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    background-color: transparent;
+    z-index: 0;
+}
+.About-home-section-par button{
+   font-size: 16px;
+    padding: 8px 35px;
+    border-radius: 10px;
+    margin: 30px 0 0 5%;
+    background-color: #44B0CC;
+    color: aliceblue;
+    border: none;
+}
+.Why-parent-chooseus-par{
+    min-height: 100vh;
+    position: relative;
+}
+.Why-Parentchoose-Us{
+    height: 90vh;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #44B0CC;
+    text-align: center;
+    border-radius: 50px;
+}
+.Why-Parentchoose-Us h1{
+    color: white;
+    background-color: transparent;
+    font-size: clamp(15px, 4vw, 40px);
+    padding: 20px 0 20px 0;
+}
+.Why-Parentchoose-Us h1 span{
+    color: #444442;
+    background-color: transparent;
+}

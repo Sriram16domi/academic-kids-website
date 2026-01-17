@@ -1,0 +1,143 @@
+/* ================= BASE ================= */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  font-family: 'Imprima', sans-serif;
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  height: 50px;
+}
+
+/* ================= DESKTOP NAV ================= */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: clamp(14px, 1.2vw, 16px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+/* REGISTER BUTTON */
+.register-btn button {
+  padding: 8px 18px;
+  background: #44B0CC;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ================= SUB NAV DESKTOP ================= */
+.sub-nav {
+  padding: 10px 20px;
+}
+
+.sub-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  list-style: none;
+}
+
+.sub-nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  padding-right: 10px;
+  border-right: 1px solid #242424;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+  display: none;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .desktop-nav,
+  .register-btn,
+  .desktop-only {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
+    padding: 20px 0;
+
+    /* animation */
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+ .mobile-menu.open .sub-links{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+ }
+ .mobile-menu.open .sub-links  a{
+  text-decoration: none;
+  color: #333;
+ }
+  .mobile-menu .nav-links,
+  .mobile-menu .sub-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .mobile-menu a {
+    font-size: 16px;
+  }
+  .sub-nav ul{
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+

@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #E9F8FB;
+    font-family: "Imprima", sans-serif;
+     font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+.subtitle {
+  color: #555;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+}
