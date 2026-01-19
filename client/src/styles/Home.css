@@ -1,3 +1,7 @@
+body{
+    background-color: #E9F8FB;
+    overflow-x: hidden; /* Fix for potential overflow issues */
+}
 .Hero-Content{
    min-height: 55vh;
    display: flex;
@@ -33,6 +37,7 @@
     position: relative;
     white-space: nowrap;
     overflow: auto;
+    max-width: 100%; /* Added to prevent overflow */
 }
 ::-webkit-scrollbar{
     display: none;
@@ -46,7 +51,7 @@
     object-fit: cover;
     margin: 10px;
     border-radius: 30px 30px 0 0;
-    border: 4px solid #44cc48;
+    border: 4px solid #449acc;
 }
 .About-home-section{
     min-height: 90vh;
@@ -77,7 +82,6 @@
     padding: 95px 0% 0 5%;
     line-height: 1.6;
     z-index: 1;
-    background-color: transparent;
 }
 .About-home-contents p span{
     color: #44B0CC;
@@ -88,7 +92,6 @@
     position: absolute;
     bottom: 0;
     right: 5%;
-    background-color: transparent;
     z-index: 0;
 }
 .About-home-section-par button{
@@ -97,15 +100,16 @@
     border-radius: 10px;
     margin: 30px 0 0 5%;
     background-color: #44B0CC;
-    color: aliceblue;
+    color: #c2e0fb;
     border: none;
 }
-.Why-parent-chooseus-par{
-    min-height: 100vh;
+.Why-parent-chooseus-section{
+    min-height: 80vh;
     position: relative;
+    margin-top: 40px;
 }
 .Why-Parentchoose-Us{
-    height: 90vh;
+    height: 65vh;
     width: 80%;
     position: absolute;
     top: 50%;
@@ -117,11 +121,365 @@
 }
 .Why-Parentchoose-Us h1{
     color: white;
-    background-color: transparent;
-    font-size: clamp(15px, 4vw, 40px);
-    padding: 20px 0 20px 0;
+    font-size: clamp(10px, 3vw, 36px);
+    padding: 15px 0 20px 0;
 }
 .Why-Parentchoose-Us h1 span{
     color: #444442;
-    background-color: transparent;
+}
+.Why-Parentchoose-Us-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default 2 columns */
+    grid-auto-rows: auto; /* Ensure rows adjust automatically */
+    gap: 20px; /* Add spacing between items */
+    width: 90%;
+    margin: auto;
+    height: auto; /* Adjust height dynamically */
+}
+
+.Why-Parentchoose-Us-content .parentchoose-heading{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.parentchoose-heading img{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+.parentchoose-heading h1{
+    font-size: clamp(12px, 2vw, 24px);
+    color: #fff;
+}
+.Why-Parentchoose-Us-content p{
+    width: 80%;
+    padding: 20px 0 0 10px;
+    font-size: clamp(8px, 1.5vw, 18px);
+    color: #444442;
+}
+@media (max-width: 768px) {
+    .Why-Parentchoose-Us-content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive for smaller screens */
+    }
+    .Why-Parentchoose-Us-content p{
+    padding: 5px 0% 0 5%;
+}}
+.OurProgram-Section{
+    min-height: 100vh;
+    background-color: #E9F8FB;
+}
+.OurProgram-Content-Heading{
+    text-align: center;
+    padding: 50px 20px;
+}
+.OurProgram-Content-Heading h1{
+    font-size: clamp(24px, 5vw, 40px);
+}
+.OurProgram-Content-Heading h1 span{
+    color: #44B0CC;
+}
+.OurProgram-Content-Heading p{
+    font-size: clamp(7px, 1.2vw, 16px);
+    word-spacing: 3px;
+    margin-top: 15px;
+
+}
+.OurProgram-Content-Grids{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 50px;
+    justify-content:flex-start ;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted for smaller screens */ /* Added responsive grid template */
+}
+.OurProgram-Content-Grids .OurProgram-Content-Grid{
+    background-color: #a5e1a7;
+    border: 10px solid #44B0CC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250px;
+    transition: .5s all ease;
+}
+.OurProgram-Content-Grids .OurProgram-Content-Grid:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.43);
+}    
+.OurProgram-Content-Grids .OurProgram-Content-Grid:nth-child(1){
+    border-radius: 50px 50px 0px 50px;
+    
+}
+.OurProgram-Content-Grids .OurProgram-Content-Grid:nth-child(2){
+    border-radius: 50px 50px 50px 0px;
+    
+}
+.OurProgram-Content-Grids .OurProgram-Content-Grid:nth-child(3){
+    border-radius: 50px 0px 50px 50px;
+    
+}
+.OurProgram-Content-Grids .OurProgram-Content-Grid:nth-child(4){
+    border-radius: 0px 50px 50px 50px;
+}    
+.OurProgram-Content-Grids .OurProgram-Content-Grid h1{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 10px;
+}
+.OurProgram-Content-Grids .OurProgram-Content-Grid p{
+    color: #444442;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 10px 25px;
+    word-spacing: 2px;
+    font-weight: 700;
+}
+.OurProgram-Content-Grid img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.OurProgram-Content-button{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.OurProgram-Content-button button{
+    font-size: 20px;
+    padding: 10px 35px;
+    border-radius: 20px;
+    background: linear-gradient( 90deg, #44B0CC 0%, #0cc95b 100%);
+    color: white;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.OurProgram-Content-button button svg{
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.Achievements-Section{
+    height: 80vh;
+    background-color: #E9F8FB;
+}
+.Achievements-Heading{
+    text-align: center;
+    padding: 50px 20px;
+}
+.Achievements-Heading h1{
+    font-size: clamp(24px, 5vw, 40px);
+}
+.Achievements-Heading h1 span{
+    color: #44B0CC;
+}
+.Achievements-Content{
+    position: relative;
+    display: flex;
+}
+.Achievements-Image-Section{
+    width: 50%;
+    height: 300px;
+}
+.Achievements-Image-Section img{
+    width: 30%;
+    position: absolute;
+}
+.Achievements-Image-Section img:nth-child(1){
+    top: 10%;
+    left: 5%;
+    border-radius: 20px;
+    rotate: calc(0deg + 10deg);
+    z-index: 1;
+
+}
+.Achievements-Image-Section img:nth-child(2){
+    top: 8%;
+    left: 19%;
+    border-radius: 20px;
+    rotate: calc(0deg - 10deg);
+    z-index: 0;
+}
+.Achievements-Image-Section img:nth-child(3){
+    margin-top: 60px;
+    left: 10%;
+    border-radius: 20px;
+    rotate: calc(0deg + 10deg);
+    z-index: 2;
+}
+.Achievements-Para-Section{
+    width: 50%;
+}
+.Achievements-Para-Section p:nth-child(1){
+    font-size: clamp(12px, 2vw, 20px);
+    padding: 15px 0px;
+    line-height: 1.5;
+}
+.Achievements-Para-Section p:nth-child(2){
+    font-size: clamp(12px, 2vw, 20px);
+    line-height: 1.5;
+}
+.Achievements-Para-Section button{
+    font-size: 16px;
+    padding: 8px 35px;
+    border-radius: 10px;
+    margin: 30px 0 0 0px;
+    background-color: #44B0CC;
+    color: #c2e0fb;
+    border: none;
+    cursor: pointer;
+}
+.Gallery-Section{
+    min-height: 100vh;
+    background-color: #E9F8FB;
+    text-align: center;
+}
+.Gallery-Section .Gallery-Heading{
+    padding: 85px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Gallery-Section .Gallery-Heading h1{
+    font-size: clamp(24px, 5vw, 40px);
+    margin-right: 15px;
+}
+.Gallery-Section .Gallery-Heading h1 span{
+    color: #44B0CC;
+}
+.Gallery-Section .Gallery-Heading img{
+    width: 40px;
+    height: 40px;
+}
+.Gallery-Container .Gallery-Image-grids {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default 2 columns */
+    grid-template-rows: auto; /* Adjust rows dynamically */
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.Gallery-Container img {
+    width: 100%;
+    height: auto;
+    border: 10px solid whitesmoke;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Gallery-Container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.Gallery-Section .Button-Section-Gallery button{
+    font-size: 20px;
+    padding: 10px 35px;
+    border-radius: 20px;
+    background: linear-gradient( 90deg, #44B0CC 0%, #0cc95b 100%);
+    color: white;
+    border: none;
+    margin: 30px auto;
+    text-align: center;
+    cursor: pointer;
+}
+.Button-Section-Gallery{
+    display: flex;
+    justify-self:center;
+    align-items: center;
+}
+.Gallery-Section .gallery-panda{
+    width: 80px;
+    height: 80px;
+}
+@media (max-width: 768px) {
+    .Gallery-Container .Gallery-Image-grids{
+        grid-template-columns: repeat(1, 1fr); /* Stack items in 1 column on smaller screens */
+    }
+}
+.Calltoaction-Section{
+    min-height: 100vh;
+    background-color: #E9F8FB;
+}
+.Calltoaction-Heading{
+    text-align: center;
+    padding: 40px 20px;
+}
+.Calltoaction-Heading h1{
+    font-size: clamp(24px, 5vw, 40px);
+}
+.Calltoaction-Heading h1 span{
+    color: #44B0CC;
+}
+.Calltoaction-Content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 80%;
+    margin: auto;
+    background-color: #44B0CC;
+    border-radius: 50px;
+}
+.Calltoaction-Content img{
+    width: 50%;
+    height: 100%;
+    border-radius: 50px 0 0px 50px;
+    object-fit: cover;
+}
+.Calltoaction-right-content{
+    width: 50%;
+    color: white;
+    background:linear-gradient( 60deg, #4444428f 0%, #44B0CC 100%);
+    height: 100%;
+    display: flex;
+    border-radius: 0px 50px 50px 0px;
+    flex-direction: column;
+}
+.Calltoaction-right-content p{
+    font-size: clamp(25px, 3vw, 30px);
+    padding: 50px 30px;
+    line-height: 1.6;
+}
+.Right-Content-btns{
+    margin-top: auto;
+    padding: 0 30px 30px 30px;
+    border-radius: 0 0 50px 0;
+}
+.Right-Content-btns button:nth-child(1){
+    font-size: 20px;
+    padding: 10px 35px;
+    border-radius: 20px;
+    background: #449acc;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .Calltoaction-Content{
+        flex-direction: column;
+    }
+    .Calltoaction-Content img, .Calltoaction-right-content{
+        width: 100%;
+        height: 50%;
+        border-radius: 50px 50px 0 0;
+    }
+    .Calltoaction-right-content{
+        border-radius: 0 0 50px 50px;
+    }
+    .Calltoaction-right-content p{
+        font-size: clamp(15px, 3vw, 25px);
+        padding: 55px 15px;
+    }
+    .Gallery-Section .Gallery-Heading{
+    padding: 0px 20px;   
+}
+}
+@media (max-width: 1020px) {
+    .Gallery-Section .Gallery-Heading{
+    padding: 15px 20px;   
+}
+
 }

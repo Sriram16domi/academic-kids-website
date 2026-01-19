@@ -1,0 +1,426 @@
+/* ==================== CLOUD STEP COMPONENT ==================== */
+
+.cloud-step-wrapper {
+  perspective: 1000px;
+  outline: none;
+}
+
+.cloud-step-wrapper:focus-visible .cloud-shape {
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    0 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+/* ==================== CLOUD SHAPE (Bubble Style) ==================== */
+
+.cloud-shape {
+  position: relative;
+  min-width: 340px;
+  padding: 32px 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Smooth oval cloud with pointed bubble lobes */
+  border-radius: 60px 80px 80px 60px / 50px 70px 70px 50px;
+  
+  /* Gradient for depth */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.2) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(0, 0, 0, 0.02) 100%);
+  
+  /* Strong white border for bubble effect */
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  
+  box-shadow: 
+    /* Main shadow for depth */
+    0 10px 28px rgba(0, 0, 0, 0.18),
+    0 20px 56px rgba(0, 0, 0, 0.1),
+    /* Inner highlight */
+    inset -2px -2px 8px rgba(0, 0, 0, 0.04),
+    inset 2px 2px 8px rgba(255, 255, 255, 0.5);
+  
+  animation: cloudFloat 5s ease-in-out infinite;
+}
+
+/* Left lobe for bubble effect */
+.cloud-shape::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  width: 50px;
+  height: 50px;
+  background: inherit;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset -1px -1px 4px rgba(0, 0, 0, 0.04),
+    inset 1px 1px 4px rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%);
+}
+
+/* Right lobe for bubble effect */
+.cloud-shape::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -28px;
+  width: 56px;
+  height: 56px;
+  background: inherit;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.16),
+    inset -1px -1px 4px rgba(0, 0, 0, 0.04),
+    inset 1px 1px 4px rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%);
+}
+
+/* ==================== CLOUD COLORS (Bright & Saturated) ==================== */
+
+.cloud-shape.teal {
+  background: linear-gradient(135deg, #20BCC4 0%, #1ba8af 100%);
+  color: white;
+}
+
+.cloud-shape.teal::before,
+.cloud-shape.teal::after {
+  background: linear-gradient(135deg, #20BCC4 0%, #1ba8af 100%);
+}
+
+.cloud-shape.coral {
+  background: linear-gradient(135deg, #FF6B5B 0%, #FF5247 100%);
+  color: white;
+}
+
+.cloud-shape.coral::before,
+.cloud-shape.coral::after {
+  background: linear-gradient(135deg, #FF6B5B 0%, #FF5247 100%);
+}
+
+.cloud-shape.green {
+  background: linear-gradient(135deg, #2DD4A0 0%, #1FB881 100%);
+  color: white;
+}
+
+.cloud-shape.green::before,
+.cloud-shape.green::after {
+  background: linear-gradient(135deg, #2DD4A0 0%, #1FB881 100%);
+}
+
+.cloud-shape.orange {
+  background: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
+  color: #333;
+}
+
+.cloud-shape.orange::before,
+.cloud-shape.orange::after {
+  background: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
+}
+
+.cloud-shape.pink {
+  background: linear-gradient(135deg, #FF4081 0%, #FF1744 100%);
+  color: white;
+}
+
+.cloud-shape.pink::before,
+.cloud-shape.pink::after {
+  background: linear-gradient(135deg, #FF4081 0%, #FF1744 100%);
+}
+
+.cloud-shape.magenta {
+  background: linear-gradient(135deg, #E040FB 0%, #D500F9 100%);
+  color: white;
+}
+
+.cloud-shape.magenta::before,
+.cloud-shape.magenta::after {
+  background: linear-gradient(135deg, #E040FB 0%, #D500F9 100%);
+}
+
+.cloud-shape.burnt-orange {
+  background: linear-gradient(135deg, #FF7043 0%, #FF5722 100%);
+  color: white;
+}
+
+.cloud-shape.burnt-orange::before,
+.cloud-shape.burnt-orange::after {
+  background: linear-gradient(135deg, #FF7043 0%, #FF5722 100%);
+}
+
+.cloud-shape.purple {
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+  color: white;
+}
+
+.cloud-shape.purple::before,
+.cloud-shape.purple::after {
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+}
+
+/* ==================== CLOUD SHADOW (Floating Effect) ==================== */
+
+.cloud-shadow {
+  position: absolute;
+  bottom: -8px;
+  left: 10%;
+  right: 10%;
+  height: 8px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(4px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: -1;
+}
+
+/* ==================== CLOUD HIGHLIGHT ==================== */
+
+.cloud-highlight {
+  position: absolute;
+  top: 8%;
+  left: 12%;
+  width: 80px;
+  height: 50px;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(12px);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ==================== CLOUD CONTENT ==================== */
+
+.cloud-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.cloud-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  min-width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.cloud-content {
+  flex: 1;
+  text-align: left;
+}
+
+.cloud-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.cloud-topic {
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* ==================== IDLE FLOATING ANIMATION ==================== */
+
+@keyframes cloudFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ==================== HOVER STATE ==================== */
+
+.cloud-step-wrapper:hover .cloud-shape {
+  transform: translateY(-16px) scale(1.04);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.22),
+    0 32px 96px rgba(0, 0, 0, 0.14),
+    inset -2px -2px 8px rgba(0, 0, 0, 0.05),
+    inset 2px 2px 8px rgba(255, 255, 255, 0.6);
+  animation: cloudFloat 5s ease-in-out infinite;
+}
+
+.cloud-step-wrapper:hover .cloud-shadow {
+  bottom: -16px;
+  opacity: 0.4;
+}
+
+.cloud-step-wrapper:hover .cloud-number {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* ==================== ACTIVE STATE ==================== */
+
+.cloud-step-wrapper.active .cloud-shape {
+  animation: cloudPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cloudPopIn {
+  0% {
+    transform: translateY(-8px) scale(0.92);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.12);
+  }
+  100% {
+    transform: translateY(-14px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+.cloud-step-wrapper.active .cloud-shadow {
+  bottom: -18px;
+  opacity: 0.45;
+  animation: shadowPulse 0.6s ease-out;
+}
+
+@keyframes shadowPulse {
+  0% {
+    transform: scaleX(0.8);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scaleX(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.45;
+  }
+}
+
+.cloud-step-wrapper.active .cloud-highlight {
+  animation: cloudGlow 0.8s ease-out;
+}
+
+@keyframes cloudGlow {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 1024px) {
+  .cloud-shape {
+    min-width: 310px;
+    padding: 28px 44px;
+  }
+
+  .cloud-title {
+    font-size: 1.08rem;
+  }
+
+  .cloud-number {
+    font-size: 2rem;
+    min-width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cloud-shape {
+    min-width: 290px;
+    padding: 24px 40px;
+  }
+
+  .cloud-inner {
+    gap: 14px;
+  }
+
+  .cloud-number {
+    font-size: 1.8rem;
+    min-width: 44px;
+    height: 44px;
+  }
+
+  .cloud-title {
+    font-size: 1rem;
+  }
+
+  .cloud-topic {
+    font-size: 0.8rem;
+  }
+
+  .cloud-shape::before {
+    width: 44px;
+    height: 44px;
+    left: -20px;
+  }
+
+  .cloud-shape::after {
+    width: 50px;
+    height: 50px;
+    right: -22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cloud-shape {
+    min-width: 100%;
+    max-width: 280px;
+    padding: 20px 32px;
+  }
+
+  .cloud-inner {
+    gap: 12px;
+  }
+
+  .cloud-number {
+    font-size: 1.6rem;
+    min-width: 40px;
+    height: 40px;
+  }
+
+  .cloud-title {
+    font-size: 0.95rem;
+  }
+
+  .cloud-topic {
+    font-size: 0.75rem;
+  }
+
+  .cloud-highlight {
+    width: 50px;
+    height: 35px;
+  }
+
+  .cloud-shape::before {
+    width: 40px;
+    height: 40px;
+    left: -18px;
+  }
+
+  .cloud-shape::after {
+    width: 44px;
+    height: 44px;
+    right: -20px;
+  }
+}

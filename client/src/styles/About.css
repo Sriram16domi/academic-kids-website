@@ -1,0 +1,21 @@
+.Aboutus-Hero-container{
+    height: 90vh;
+    background:url('../assets/Aboutus-Hero-img.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+.Aboutus-Hero-container-content{
+    width: 450px;
+    min-width:210px;
+    height: 70%;
+    background-color:#44B0CC ;
+    margin-left: 35px;
+    border-radius: 0 0 130px 0px;
+}
+.Aboutus-Hero-container-content h1{
+    color: white;
+    font-size: 4rem;
+    padding: 20px 30px;
+}
