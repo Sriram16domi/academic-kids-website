@@ -50,6 +50,11 @@
 }
 
 /* RIGHT */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+
+}
 .footer-right h3 {
   font-size: 22px;
   margin-bottom: 20px;

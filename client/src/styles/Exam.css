@@ -5,10 +5,10 @@
 
 /* Header Section */
 .exam-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #E9F8FB;
   padding: 60px 20px;
   text-align: center;
-  color: white;
+  color: #1f1f1fc7;
 }
 
 .exam-header-content {
@@ -114,7 +114,7 @@
 .course-image img {
   width: 100%;
   height: auto;
-  border-radius: 15px;
+  border-radius: 40% 40% 0 0;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -195,6 +195,24 @@
 .blue-section {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: white;
+}
+.Exam-Conclusion{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.Exam-Conclusion h1{
+  font-size: 2.1rem;
+  margin-bottom: 20px;
+  color: #30cfd0;
+}
+.Exam-Conclusion p{
+  font-size: 12px;
+  width: 70%;
+  line-height: 1.6;
 }
 
 /* Responsive Design */

@@ -1,6 +1,10 @@
 
 
 import '../styles/Exam.css';
+import Examimg1 from '../assets/Examimg-1.webp'
+import Examimg2 from '../assets/Examimg-2.webp'
+import Examimg3 from '../assets/Examimg-3.webp'
+import Examimg4 from '../assets/Examimg-4.png'
 
 const Exam = () => {
   return (
@@ -40,7 +44,7 @@ const Exam = () => {
             </div>
           </div>
           <div className="course-image">
-            <img src="https://via.placeholder.com/400x300?text=Cambridge+Starters" alt="Cambridge Starters" />
+            <img src={Examimg1} alt="Cambridge Starters" />
           </div>
         </div>
 
@@ -68,7 +72,7 @@ const Exam = () => {
       <section className="exam-course pink-section">
         <div className="course-container">
           <div className="course-image">
-            <img src="https://via.placeholder.com/400x300?text=Cambridge+Movers" alt="Cambridge Movers" />
+            <img src={Examimg2} alt="Cambridge Movers" />
           </div>
           <div className="course-text">
             <h2>Cambridge Movers</h2>
@@ -138,7 +142,7 @@ const Exam = () => {
             </div>
           </div>
           <div className="course-image">
-            <img src="https://via.placeholder.com/400x300?text=Cambridge+Flyers" alt="Cambridge Flyers" />
+            <img src={Examimg3} alt="Cambridge Flyers" />
           </div>
         </div>
 
@@ -166,7 +170,7 @@ const Exam = () => {
       <section className="exam-course yellow-section">
         <div className="course-container">
           <div className="course-image">
-            <img src="https://via.placeholder.com/400x300?text=Key+English+Test" alt="Key English Test" />
+            <img src={Examimg1} alt="Key English Test" />
           </div>
           <div className="course-text">
             <h2>Key English Test</h2>
@@ -235,7 +239,7 @@ const Exam = () => {
             </div>
           </div>
           <div className="course-image">
-            <img src="https://via.placeholder.com/400x300?text=Preliminary+English+Test" alt="Preliminary English Test" />
+            <img src={Examimg2} alt="Preliminary English Test" />
           </div>
         </div>
 
@@ -262,7 +266,7 @@ const Exam = () => {
       <section className="exam-course blue-section">
         <div className="course-container">
           <div className="course-image">
-            <img src="https://via.placeholder.com/400x300?text=FCE" alt="First Certificate in English" />
+            <img src={Examimg4} alt="First Certificate in English" />
           </div>
           <div className="course-text">
             <h2>First Certificate in English</h2>
@@ -307,7 +311,15 @@ const Exam = () => {
           </div>
         </div>
       </section>
+
+     <div className="Exam-Conclusion">
+      <h1>Conclusion</h1>
+      <p>The Cambridge English pathway takes students from beginners to advanced users step by step. By choosing the right level, you can improve your English, build confidence, and open global opportunities in education, work, and travel.</p>
+     </div>
+
     </div>
+
+
   );
 };
 

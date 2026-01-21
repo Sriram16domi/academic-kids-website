@@ -1,10 +1,95 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Program.css';
 import CloudStep from './CloudStep';
 import ContentPanel from './ContentPanel';
+import flightpanda from '../assets/flight-panda.png';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Program = () => {
   const [activeCloud, setActiveCloud] = useState(null);
+  const pandaRef = useRef(null);
+  const flowSectionRef = useRef(null);
+
+  useEffect(() => {
+    if (!pandaRef.current || !flowSectionRef.current) return;
+
+    const flowSection = flowSectionRef.current;
+    const sectionHeight = flowSection.offsetHeight;
+    const sectionTop = flowSection.getBoundingClientRect().top;
+
+    // Set initial position to visible at start
+    gsap.set(pandaRef.current, {
+      opacity: 1,
+      rotation: 0
+    });
+
+    // Create scroll animation with optimal performance
+    const ctx = gsap.context(() => {
+      gsap.to(pandaRef.current, {
+        scrollTrigger: {
+          trigger: flowSectionRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.2, // Smooth scrubbing with 1.2s lag
+          markers: false,
+          onUpdate: (self) => {
+            // Calculate progress from 0 to 1
+            const progress = self.progress;
+            
+            // SVG viewBox: 0 0 100 1000
+            // Path: M 50 50 Q 30 150, 50 250 Q 70 350, 50 450 Q 30 550, 50 650 Q 70 750, 50 850 Q 30 900, 50 950
+            const pathSegments = [
+              { x: 50, y: 50, qx: 30, qy: 150, ex: 50, ey: 250 },
+              { x: 50, y: 250, qx: 70, qy: 350, ex: 50, ey: 450 },
+              { x: 50, y: 450, qx: 30, qy: 550, ex: 50, ey: 650 },
+              { x: 50, y: 650, qx: 70, qy: 750, ex: 50, ey: 850 },
+              { x: 50, y: 850, qx: 30, qy: 900, ex: 50, ey: 950 }
+            ];
+            
+            // Find which segment we're on
+            const segmentProgress = progress * pathSegments.length;
+            const segmentIndex = Math.floor(segmentProgress) % pathSegments.length;
+            const localProgress = segmentProgress - segmentIndex;
+            
+            const segment = pathSegments[segmentIndex];
+            
+            // Quadratic bezier interpolation
+            const t = Math.min(localProgress, 1);
+            const mt = 1 - t;
+            
+            // P(t) = (1-t)²P0 + 2(1-t)tP1 + t²P2
+            const svgX = mt * mt * segment.x + 
+                         2 * mt * t * segment.qx + 
+                         t * t * segment.ex;
+            
+            const svgY = mt * mt * segment.y + 
+                         2 * mt * t * segment.qy + 
+                         t * t * segment.ey;
+            
+            // Get flow section dimensions
+            const flowRect = flowSection.getBoundingClientRect();
+            
+            // Convert SVG coordinates to pixel positions within the flow section
+            // SVG width is 100 units, height is 1000 units
+            const pixelX = (svgX / 100) * flowRect.width - 50; // Center offset (panda width)
+            const pixelY = (svgY / 1000) * sectionHeight;
+            
+            gsap.set(pandaRef.current, {
+              left: pixelX + 'px',
+              top: pixelY + 'px',
+              rotation: 0, // No rotation
+              opacity: 1
+            });
+          }
+        }
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const steps = [
     {
@@ -95,7 +180,8 @@ const Program = () => {
       </section>
 
       {/* Flow Section */}
-      <section className="program-flow">
+      <section className="program-flow" ref={flowSectionRef}>
+        <img className='flightpanda' src={flightpanda} alt="Flight Panda" ref={pandaRef} />
         {/* Curved Path */}
         <svg className="flow-path" viewBox="0 0 100 1000" preserveAspectRatio="none">
           <path

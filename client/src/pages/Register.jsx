@@ -36,9 +36,20 @@ export default function Register() {
 
 
   return (
+    <>
+     <div className="Register-Hero-Section">
+        <div className="Register-Contents">
+          <h1>Enroll Your Child Today</h1>
+          <p>Join our fun, interactive programs and give your child the gift of confident communication and lifelong learning</p>
+        </div>
+      </div>
+      <div className="Register-Heading">
+        <h1>Register<span>Form</span></h1>
+        <p>Please fill in the details below to register your child. Our team will contact you within 24 hours to confirm the enrollment</p>
+      </div>
     <div className="form-container">
+      
       <form className="form-card" onSubmit={handleSubmit}>
-        <h2>Registration Form</h2>
 
         <input name="parentName" placeholder="Parent Name" required onChange={handleChange} />
         <input name="email" type="email" placeholder="Email" required onChange={handleChange} />
@@ -49,5 +60,7 @@ export default function Register() {
         <button type="submit">Submit</button>
       </form>
     </div>
+    </>
+ 
   );
 }

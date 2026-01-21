@@ -14,7 +14,7 @@ const CourseHero = ({ course, onApplyClick }) => {
         </div>
         <div className="course-hero-image">
           <div className="hero-image-wrapper">
-            <img src={course.heroImage} alt={course.title} />
+            <img src={course.image} alt={course.title} />
           </div>
         </div>
       </div>

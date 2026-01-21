@@ -1,10 +1,20 @@
+import image1 from '../assets/coursesimg-1.webp';
+import image2 from '../assets/coursesimg-2.webp';
+import image3 from '../assets/coursesimg-3.webp';
+import image4 from '../assets/coursesimg-4.webp';
+import image5 from '../assets/coursesimg-5.webp';
+import image6 from '../assets/coursesimg-6.webp';
+import image7 from '../assets/coursesimg-7.webp';
+import image8 from '../assets/coursesimg-8.webp';
+
+
 const coursesData = [
   {
     id: 'tuition-prkg-10th',
     title: 'Tuition',
     subtitle: 'Pre KG To 10th',
     range: '(Stateboard, Matric, CBSE)',
-    image: 'https://via.placeholder.com/500x400?text=Tuition',
+    image: image1,
     heroImage: 'https://via.placeholder.com/400x300?text=Tuition',
     overview: 'This course provides comprehensive academic coaching for students from Pre-Kindergarten to Grade 10. It covers subjects across different boards including Stateboard, Matriculation, and CBSE. The program focuses on concept clarity, problem-solving skills, and exam preparation strategies. Teachers provide personalized attention to match each student\'s learning pace. The aim is to build a strong academic foundation and confidence in tackling school-level examinations.',
     details: {
@@ -32,7 +42,7 @@ const coursesData = [
     title: 'Phonics',
     subtitle: 'Foundation English',
     range: '(Pre KG - Grade 2)',
-    image: 'https://via.placeholder.com/500x400?text=Phonics',
+    image: image2,
     heroImage: 'https://via.placeholder.com/400x300?text=Phonics',
     overview: 'Phonics course focuses on teaching the relationship between letters and sounds. It provides a systematic approach to reading and pronunciation, helping young learners decode words independently. The program uses visual aids, interactive games, and multi-sensory techniques to make learning engaging. By mastering phonics, children develop confident reading abilities and improved spelling skills.',
     details: {
@@ -60,7 +70,7 @@ const coursesData = [
     title: 'Hand Writing',
     subtitle: 'Writing Fundamentals',
     range: '(Grade 1 - Grade 3)',
-    image: 'https://via.placeholder.com/500x400?text=Hand+Writing',
+    image: image3,
     heroImage: 'https://via.placeholder.com/400x300?text=Hand+Writing',
     overview: 'Hand writing course develops fine motor skills and proper letter formation. Children learn correct pen grip, posture, and writing techniques. The curriculum progresses from letter writing to words and sentences, ensuring legibility and speed. Through practice activities and fun exercises, students develop confidence in their writing abilities and improved hand-eye coordination.',
     details: {
@@ -88,7 +98,7 @@ const coursesData = [
     title: 'Spelling',
     subtitle: 'Orthography Mastery',
     range: '(Grade 2 - Grade 5)',
-    image: 'https://via.placeholder.com/500x400?text=Spelling',
+    image: image4,
     heroImage: 'https://via.placeholder.com/400x300?text=Spelling',
     overview: 'Spelling course teaches systematic spelling rules and patterns. Students learn word families, phonetic patterns, and irregular spellings through engaging activities. The program includes memory techniques, visual associations, and repeated practice to cement learning. By the end of the course, students develop strong spelling accuracy and can confidently write without errors.',
     details: {
@@ -116,7 +126,7 @@ const coursesData = [
     title: 'Foundation Math',
     subtitle: 'Numeracy Skills',
     range: '(Grade 1 - Grade 3)',
-    image: 'https://via.placeholder.com/500x400?text=Foundation+Math',
+    image: image5,
     heroImage: 'https://via.placeholder.com/400x300?text=Foundation+Math',
     overview: 'Foundation Math course builds strong numeracy skills and mathematical reasoning. Through concrete manipulatives and visual representations, students understand fundamental concepts like counting, addition, subtraction, and place value. The program develops problem-solving abilities and mathematical confidence from an early age.',
     details: {
@@ -144,7 +154,7 @@ const coursesData = [
     title: 'Reading',
     subtitle: 'Comprehension Skills',
     range: '(Grade 2 - Grade 5)',
-    image: 'https://via.placeholder.com/500x400?text=Reading',
+    image: image6,
     heroImage: 'https://via.placeholder.com/400x300?text=Reading',
     overview: 'Reading course develops comprehension and critical thinking skills. Students learn to extract information, make inferences, and analyze texts. The curriculum includes diverse reading materials and strategies to enhance vocabulary and fluency. Engaging discussions help develop a love for reading while improving academic performance.',
     details: {
@@ -172,7 +182,7 @@ const coursesData = [
     title: 'Public Speaking',
     subtitle: 'Communication Excellence',
     range: '(Grade 3 - Grade 8)',
-    image: 'https://via.placeholder.com/500x400?text=Public+Speaking',
+    image: image7,
     heroImage: 'https://via.placeholder.com/400x300?text=Public+Speaking',
     overview: 'Public Speaking course builds confidence and communication skills. Students learn to articulate ideas clearly, manage stage fright, and present effectively. Through practice presentations, group discussions, and feedback sessions, learners develop strong verbal communication abilities that enhance academic and social success.',
     details: {
@@ -200,7 +210,7 @@ const coursesData = [
     title: 'Hindi Prachar Sabha',
     subtitle: 'Hindi Language Skills',
     range: '(Grade 1 - Grade 6)',
-    image: 'https://via.placeholder.com/500x400?text=Hindi+Grammar',
+    image: image8,
     heroImage: 'https://via.placeholder.com/400x300?text=Hindi+Grammar',
     overview: 'Hindi Prachar Sabha course focuses on developing proficiency in Hindi language. Students learn grammar, vocabulary, writing, and reading skills. The program celebrates Hindi literature and culture while ensuring strong academic performance in Hindi subject examinations.',
     details: {

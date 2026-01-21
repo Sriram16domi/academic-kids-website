@@ -31,7 +31,7 @@ export const Navbar = () => {
         <ul className="nav-links desktop-nav">
           <li><Link to="/"><FaHome /> Home</Link></li>
           <li><Link to="/about"><FaInfoCircle /> About Us</Link></li>
-          <li><Link to="/course"><FaBook /> Course</Link></li>
+          <li><Link to="/courses"><FaBook /> Course</Link></li>
           <li><Link to="/contact"><FaPhone /> Contact Us</Link></li>
         </ul>
 
@@ -60,7 +60,7 @@ export const Navbar = () => {
           <ul className="sub-links">
             <li><Link to="/" onClick={() => setMenuOpen(false)}>Training</Link></li>
             <li><Link to="/about" onClick={() => setMenuOpen(false)}>All Training & Course</Link></li>
-            <li><Link to="/course" onClick={() => setMenuOpen(false)}>Training Information Session</Link></li>
+            <li><Link to="/exam" onClick={() => setMenuOpen(false)}>Training Information Session</Link></li>
             <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Our Trainers</Link></li>
           </ul>
         </div>
@@ -71,8 +71,8 @@ export const Navbar = () => {
         <nav>
           <ul>
             <li><Link to="/">Training</Link></li>
-            <li><Link to="/about">All Training & Course</Link></li>
-            <li><Link to="/course">Training Information Session</Link></li>
+            <li><Link to="/courses">All Training & Course</Link></li>
+            <li><Link to="/exam">Training Information Session</Link></li>
             <li><Link to="/contact">Our Trainers</Link></li>
           </ul>
         </nav>

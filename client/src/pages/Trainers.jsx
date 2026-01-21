@@ -1,44 +1,73 @@
+import { useState } from 'react';
 import '../styles/Trainers.css';
+import trainerHeroImage from '../assets/trainer-img.png';
 
-const Trainers = () => {
+const Trainers = ({images}) => {
+  const [expandedTrainerId, setExpandedTrainerId] = useState(null);
+  const image = images.filter(img =>
+    [61,62,63,64,65,66].includes(img.order)
+  );
+
   const trainers = [
     {
       id: 1,
       name: 'Ms. Hemo',
       subject: 'Writing and grammar',
-      image: 'https://via.placeholder.com/150x150'
+      image:  image[0]?.thumbUrl || 'https://via.placeholder.com/150x150',
+      role: 'Senior Writing Instructor',
+      description: 'Passionate educator with a focus on developing strong writing foundations and creative expression in children.',
+      experience: '8 years of teaching experience'
     },
     {
       id: 2,
       name: 'Ms. Hemo',
       subject: 'Writing and grammar',
-      image: 'https://via.placeholder.com/150x150'
+      image:  image[1]?.thumbUrl || 'https://via.placeholder.com/150x150',
+      role: 'Grammar Specialist',
+      description: 'Expert in making grammar engaging and fun for young learners through interactive storytelling techniques.',
+      experience: '6 years of teaching experience'
     },
     {
       id: 3,
       name: 'Ms. Hemo',
       subject: 'Writing and grammar',
-      image: 'https://via.placeholder.com/150x150'
+      image: image[2]?.thumbUrl ||'https://via.placeholder.com/150x150',
+      role: 'Language Arts Coach',
+      description: 'Dedicated to helping children discover their unique voice and build confidence in written communication.',
+      experience: '7 years of teaching experience'
     },
     {
       id: 4,
       name: 'Ms. Hemo',
       subject: 'Writing and grammar',
-      image: 'https://via.placeholder.com/150x150'
+      image: image[3]?.thumbUrl ||'https://via.placeholder.com/150x150',
+      role: 'Creative Writing Mentor',
+      description: 'Specializes in nurturing creativity while maintaining strong grammatical foundations in young writers.',
+      experience: '5 years of teaching experience'
     },
     {
       id: 5,
       name: 'Ms. Hemo',
       subject: 'Writing and grammar',
-      image: 'https://via.placeholder.com/150x150'
+      image: image[4]?.thumbUrl ||'https://via.placeholder.com/150x150',
+      role: 'Literature Educator',
+      description: 'Combines grammar instruction with rich literature exposure to inspire a love of writing and reading.',
+      experience: '9 years of teaching experience'
     },
     {
       id: 6,
       name: 'Ms. Hemo',
       subject: 'Writing and grammar',
-      image: 'https://via.placeholder.com/150x150'
+      image: image[5]?.thumbUrl || 'https://via.placeholder.com/150x150',
+      role: 'Communication Specialist',
+      description: 'Focuses on developing all aspects of communication skills from basic grammar to advanced expression.',
+      experience: '6 years of teaching experience'
     }
   ];
+
+  const handleTrainerCardClick = (trainerId) => {
+    setExpandedTrainerId(expandedTrainerId === trainerId ? null : trainerId);
+  };
 
   const expertise = [
     { id: 1, title: 'Phonics', icon: '🕐' },
@@ -64,7 +93,7 @@ const Trainers = () => {
           </div>
           <div className="hero-image">
             <div className="hero-circle">
-              <img src="https://via.placeholder.com/300x300" alt="Expert Trainers" />
+              <img src={trainerHeroImage} alt="Expert Trainers" />
             </div>
           </div>
         </div>
@@ -84,14 +113,44 @@ const Trainers = () => {
       <section className="trainers-grid-section">
         <div className="section-container">
           <div className="trainers-grid">
-            {trainers.map(trainer => (
-              <div key={trainer.id} className="trainer-card">
-                <div className="trainer-image-wrapper">
-                  <img src={trainer.image} alt={trainer.name} className="trainer-image" />
+            {trainers.map((trainer, index) => (
+              <div
+                key={trainer.id}
+                className={`trainer-card ${expandedTrainerId === trainer.id ? 'expanded' : ''}`}
+                onClick={() => handleTrainerCardClick(trainer.id)}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="trainer-card-inner">
+                  {/* Front of card */}
+                  <div className="trainer-card-front">
+                    <div className="trainer-image-wrapper">
+                      <img src={trainer.image} alt={trainer.name} className="trainer-image" />
+                    </div>
+                    <h3 className="trainer-name">{trainer.name}</h3>
+                    <p className="trainer-subject">{trainer.subject}</p>
+                    <button 
+                      className="learn-more-btn" 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleTrainerCardClick(trainer.id);
+                      }}
+                    >
+                      Learn more
+                    </button>
+                  </div>
+
+                  {/* Back of card */}
+                  <div className="trainer-card-back">
+                    <div className="trainer-details-content">
+                      <h3 className="trainer-role">{trainer.role}</h3>
+                      <p className="trainer-description">{trainer.description}</p>
+                      <p className="trainer-experience">
+                        <span className="experience-icon">⭐</span>
+                        {trainer.experience}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="trainer-name">{trainer.name}</h3>
-                <p className="trainer-subject">{trainer.subject}</p>
-                <button className="learn-more-btn">Learn more</button>
               </div>
             ))}
           </div>
@@ -128,55 +187,6 @@ const Trainers = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-left">
-            <div className="footer-logo">
-              <div className="logo-circle">🧠</div>
-              <h3 className="footer-logo-text">BUBBLEE INSTITUTION</h3>
-            </div>
-            <p className="footer-description">
-              At Bubblee, our mission is to empower young minds with quality education and support, fostering confident, creative builders of their future.
-            </p>
-            <button className="about-us-btn">About Us</button>
-          </div>
-
-          <div className="footer-right">
-            <div className="footer-links">
-              <h4 className="footer-links-title">Quick links</h4>
-              <ul className="links-list">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#work">Work With Us</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <div className="footer-bottom-left">
-            <p className="footer-policy">Contact . Privacy Policy</p>
-          </div>
-          <div className="footer-social">
-            <a href="#twitter" className="social-icon">𝕏</a>
-            <a href="#youtube" className="social-icon">▶</a>
-            <a href="#linkedin" className="social-icon">in</a>
-            <a href="#instagram" className="social-icon">📷</a>
-          </div>
-          <div className="footer-bottom-right">
-            <p className="footer-copyright">© 2025 All Rights Reserved.</p>
-          </div>
-        </div>
-
-        <div className="footer-mission">
-          <p className="footer-mission-text">
-            We believe Montessori education can empower the next generation to be happier, more fulfilled and better able to make a positive difference to their family, their community and the planet.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

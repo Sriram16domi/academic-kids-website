@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .program-page {
@@ -66,6 +67,19 @@
   position: relative;
   padding: 80px 20px;
   min-height: 100vh;
+}
+
+.program-flow .flightpanda {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  z-index: 50;
+  pointer-events: none;
+  will-change: transform; /* GPU acceleration for smooth animation */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transform-origin: center center;
+  opacity: 1;
+  visibility: visible;
 }
 
 .flow-path {

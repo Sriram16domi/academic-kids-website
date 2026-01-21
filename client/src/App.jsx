@@ -30,7 +30,7 @@ export default function App() {
         <Route path="/gallery" element={<Gallery images={images} />} />
         <Route path="/about" element={<About />} />
         <Route path="/exam" element={<Exam />} />
-        <Route path="/trainers" element={<Trainers />} />
+        <Route path="/trainers" element={<Trainers images={images} />} />
         <Route path="/courses" element={<CourseList />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />
       </Routes>

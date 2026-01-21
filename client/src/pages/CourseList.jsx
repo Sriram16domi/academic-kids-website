@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import coursesData from '../data/coursesData';
 import CourseCard from '../components/CourseCard';
+import cambridgeChart from '../assets/cambridge-img.webp';
 import '../styles/CourseList.css';
 
 const CourseList = () => {
@@ -33,17 +34,13 @@ const CourseList = () => {
         <div className="section-container">
           <h2 className="cambridge-title">CAMBRIDGE <span className="highlight">EXAM</span></h2>
           <div className="cambridge-chart">
-            <svg viewBox="0 0 400 300" className="exam-chart">
-              <ellipse cx="200" cy="150" rx="180" ry="120" fill="none" stroke="#ddd" strokeWidth="2" />
-              <text x="200" y="160" textAnchor="middle" className="chart-text">
-                Comprehensive Exam Preparation
-              </text>
-            </svg>
+            <img src={cambridgeChart} alt="" />
           </div>
           <p className="cambridge-description">
             At our play school, children get the chance to learn, explore, and grow through fun and engaging exams. We prepare kids step by step with <span className="highlight-text">Cambridge English exams</span>, which help build the skills with confidence.
           </p>
-          <button className="know-more-btn">Know More</button>
+          <Link to={'/exam'}><button className="know-more-btn">Know More</button></Link>
+          
         </div>
       </section>
     </div>
